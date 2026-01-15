@@ -1,9 +1,11 @@
 import React from 'react'
 import {Container,Logo,LogoutButton} from '../index'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import authService from '../../appwrite/auth'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../store/authSlice'
+import { NavLink } from 'react-router-dom'
 function Header() {
   const authStatus = useSelector((state,action)=> state.auth.status)
   const navigate = useNavigate();
@@ -43,8 +45,8 @@ function Header() {
             </Link>
           </div>
           <ul>
-            {navItems.map((item) => (active) ? (
-              <li key={item}>
+            {navItems.map((item) => (item.active) ? (
+              <li key={item.slug}>
                 <button 
                 onClick={ () => navigate(item.slug)}
                 className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'>
