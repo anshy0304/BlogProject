@@ -8,7 +8,7 @@ function Home() {
     useEffect(() => {
         appwriteService.getPosts().then((posts) => {
             if (posts) {
-                setPosts(posts.documents)
+                setPosts(posts.rows)
             }
         })
     }, [])
@@ -19,9 +19,9 @@ function Home() {
                 <Container>
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
-                            <h1 className="text-2xl font-bold hover:text-gray-500">
+                          { (posts) ? <h1 className="text-2xl font-bold hover:text-gray-500">
                                 Login to read posts
-                            </h1>
+                            </h1>: null }
                         </div>
                     </div>
                 </Container>

@@ -114,9 +114,9 @@ export class Service{
             throw error
         }
     }
-    getFilePreview(fileId) {
+    getFileView(fileId) {
         try {
-            return this.bucket.getFilePreview({
+            return this.bucket.getFileView({
                 bucketId: conf.bucketId,
                 fileId: fileId,
             });

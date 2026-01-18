@@ -30,6 +30,10 @@ function Header() {
       name:"All Posts",
       slug:'/all-posts',
       active:authStatus
+    },{
+      name:"Add post",
+      slug:'/add-post',
+      active:authService
     }
     
 
@@ -38,13 +42,13 @@ function Header() {
   return (
     <header className='py-3 shadow bg-gray-500'>
       <Container>
-        <nav className='flex'>
+        <nav className='flex justify-between'>
           <div className='mr-4'>
             <Link to ='/'>
-            <Logo width='70px'/>
+            <Logo width='120px'/>
             </Link>
           </div>
-          <ul>
+          <ul className='flex'>
             {navItems.map((item) => (item.active) ? (
               <li key={item.slug}>
                 <button 

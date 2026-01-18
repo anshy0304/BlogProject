@@ -8,9 +8,12 @@ function RTE({name,label,control,defaultValue = ""}) {
     <Controller 
     name={name || 'content'}
     control={control}
-    render={({field:{onChange}}) => (
+    render={({field}) => (
         <Editor
+        apiKey='zebrxivjl2qtpgugtxp3p7byhhwtkvuucnfbk2jkb1p3n3az'
          initialValue={defaultValue}
+          value={field.value || ''}         
+            onEditorChange={field.onChange}
         init={{
             initialValue: defaultValue,
             height: 500,
@@ -41,7 +44,7 @@ function RTE({name,label,control,defaultValue = ""}) {
             "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
             content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
         }}
-        onEditorChange={onChange}
+       
         
         />
     )}

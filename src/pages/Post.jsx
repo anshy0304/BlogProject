@@ -9,7 +9,7 @@ function Post() {
     const [post,setPost] = useState(null);
     const {slug}  = useParams()
     const navigate = useNavigate()
-    const userData = useSelector((state) => state.auth.userData);
+    const userData = useSelector((state) => state.auth.userdata);
     const isAuthor = post && userData ? post.userId === userData.$id : false;
     useEffect(()=>{
          if (slug) {
@@ -32,7 +32,7 @@ function Post() {
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
                     <img
-                        src={Service.getFilePreview(post.featuredImage)}
+                        src={Service.getFileView(post.featuredImage)}
                         alt={post.title}
                         className="rounded-xl"
                     />
